@@ -12,6 +12,7 @@ start() {
 	[ -d $(dirname $MOTION_ALARM) ] && touch $MOTION_ALARM
 	[ "$motion_send2email" = "true" ] && send2email
 	[ "$motion_send2ftp" = "true" ] && send2ftp
+	[ "$motion_send2scp" = "true" ] && send2scp
 	[ "$motion_send2mqtt" = "true" ] && send2mqtt
 	[ "$motion_send2telegram" = "true" ] && send2telegram
 	[ "$motion_send2webhook" = "true" ] && send2webhook

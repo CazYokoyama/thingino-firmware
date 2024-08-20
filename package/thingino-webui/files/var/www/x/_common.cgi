@@ -678,7 +678,7 @@ update_caminfo() {
 	:>$tmpfile
 	# add all web-related config files
 	# do not include ntp
-	for _f in admin email ftp motion socks5 speaker telegram webhook yadisk; do
+	for _f in admin email ftp scp motion socks5 speaker telegram webhook yadisk; do
 		[ -f "${ui_config_dir}/${_f}.conf" ] && cat "${ui_config_dir}/${_f}.conf" >>$tmpfile
 	done; unset _f
 

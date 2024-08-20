@@ -4,7 +4,7 @@
 plugin="motion"
 plugin_name="Motion guard"
 page_title="Motion guard"
-params="enabled sensitivity send2email send2ftp send2mqtt send2telegram send2webhook send2yadisk throttle"
+params="enabled sensitivity send2email send2ftp send2scp send2mqtt send2telegram send2webhook send2yadisk throttle"
 
 config_file="${ui_config_dir}/${plugin}.conf"
 [ ! -f "$config_file" ] && touch $config_file
@@ -68,6 +68,9 @@ fi
 <li class="list-group-item send2ftp">
 <% field_checkbox "motion_send2ftp" "Upload to FTP" "<a href=\"plugin-send2ftp.cgi\">Configure uploading to FTP</a>" %>
 </li>
+<li class="list-group-item send2scp">
+<% field_checkbox "motion_send2scp" "Upload by SCP" "<a href=\"plugin-send2scp.cgi\">Configure uploading by SCP</a>" %>
+</li>
 <li class="list-group-item send2mqtt">
 <% field_checkbox "motion_send2mqtt" "Send to MQTT" "<a href=\"plugin-send2mqtt.cgi\">Configure sending to MQTT</a>" %>
 </li>
@@ -93,6 +96,7 @@ fi
 <script>
 <% [ "true" != "$email_enabled"    ] && echo "\$('#motion_send2email').disabled = true;" %>
 <% [ "true" != "$ftp_enabled"      ] && echo "\$('#motion_send2ftp').disabled = true;" %>
+<% [ "true" != "$scp_enabled"      ] && echo "\$('#motion_send2scp').disabled = true;" %>
 <% [ "true" != "$mqtt_enabled"     ] && echo "\$('#motion_send2mqtt').disabled = true;" %>
 <% [ "true" != "$telegram_enabled" ] && echo "\$('#motion_send2telegram').disabled = true;" %>
 <% [ "true" != "$webhook_enabled"  ] && echo "\$('#motion_send2webhook').disabled = true;" %>
